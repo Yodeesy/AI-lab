@@ -29,4 +29,4 @@ A 15 puzzle solver leveraging A* and ID A* algorithms, accompanied by an animati
 - Depending on your operating system, additional libraries may be required to run the animation smoothly. Install `pywin32` on Windows, `pyobjc` on macOS, and `xdotool` on Linux if necessary.
 - Solving complex puzzles can be time - consuming. Please exercise patience.
 
-**Copyright**: This project is created by Yodeeshi from the School of Computer Science, Sun Yat - sen University. All rights reserved for learning and research purposes. 
+**Copyright**: This project is created by Yodeeshi from the School of Computer Science and Engineering, Sun Yat - sen University. All rights reserved for learning and research purposes. 
