@@ -1,0 +1,37 @@
+# ========= 公共参数 =========
+data_path: house_price.csv
+train_ratio: 0.8
+hidden_dims: [128, 64]
+epochs: 500
+use_gpu: true
+use_amp: true
+log_interval: 10
+num_workers: 3
+pin_memory: true
+early_stopping: true
+
+# ========= SGD 特有参数 =========
+sgd:
+  optimizer: SGD
+  loss_function: Huber # or MSE
+  batch_size: 64
+  dropout: 0.3
+  weight_decay: 0.0001  # L2正则化
+  lr: 0.03
+  lr_scheduler: StepLR # 如果使用StepLR，请把下面的注释符去掉
+  lr_step_size: 50  
+  lr_gamma: 0.95
+# patience: 20
+# factor: 0.5
+
+# ========= Adam 特有参数 =========
+adam:
+  optimizer: Adam
+  loss_function: Huber # or MSE
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0003 # L2正则化
+  dropout: 0.35
+  lr_scheduler: ReduceLROnPlateau
+  patience: 10
+  factor: 0.5
