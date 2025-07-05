@@ -24,6 +24,7 @@ root/
 │           └── script.js
 ├── uploads/                  # 用户上传文件的临时存放目录
 ├── out/                      # AI 生成代码和日志的输出目录
-└── run.py                    # 项目启动文件 (新的入口点)
+├── run.py                    # 项目启动文件 (新的入口点)
+└── requirements.txt          # 依赖项
 ```
 
