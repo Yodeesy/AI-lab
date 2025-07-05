@@ -1,0 +1,41 @@
+# Flask 及相关依赖
+Flask==3.1.1
+Flask-Cors==6.0.1 # 用于处理跨域请求
+Jinja2==3.1.6 # Flask 模板引擎依赖
+MarkupSafe==3.0.2 # Jinja2 依赖
+Werkzeug==3.1.3 # Flask 核心依赖
+
+# LangChain 和 LangGraph 核心库
+langchain-core==0.3.65 # LangChain 的核心组件
+langgraph==0.4.8 # 多智能体框架
+pydantic==2.11.5 # 用于数据模型定义 (BaseModel)
+pydantic_core==2.33.2 # Pydantic 核心依赖
+typing_extensions==4.14.0 # 类型提示扩展，pydantic 等库的依赖
+
+# LLM 模型相关 (如果使用 OpenAI 或兼容 OpenAI API 的模型)
+openai==1.86.0 # OpenAI Python 客户端
+langchain-openai==0.3.23 # LangChain 对 OpenAI 的集成
+tiktoken==0.9.0 # OpenAI tokenizer 依赖
+
+# 工具相关
+tavily-python==0.7.9 # 用于网络搜索
+requests==2.32.4 # 用于 HTTP 请求，例如网页抓取
+beautifulsoup4==4.13.4 # 用于 HTML 解析和网页内容提取
+python-multipart==0.0.20 # 用于处理文件上传，如果后端 API 接收文件
+
+# 向量数据库和嵌入模型
+chromadb==1.0.12 # 向量数据库
+langchain-community==0.3.25 # 包含 ChromaDB 集成和 SentenceTransformerEmbeddings
+sentence-transformers==4.1.0 # 用于生成文本嵌入
+torch==2.7.1 # PyTorch 深度学习框架，Sentence-Transformers 的依赖
+numpy==2.2.5 # 数值计算库，深度学习和数据处理的常用依赖
+huggingface-hub==0.33.0 # Hugging Face Hub 客户端，Sentence-Transformers 的依赖
+tokenizers==0.21.1 # Hugging Face Tokenizers 库，可能为 Sentence-Transformers 的依赖
+transformers==4.52.4 # Hugging Face Transformers 库，可能为 Sentence-Transformers 的依赖
+
+# 环境配置
+python-dotenv==1.1.0 # 用于加载 .env 文件中的环境变量
+
+# 其他可能需要的辅助库 (根据代码中实际使用情况)
+APScheduler==3.11.0 # 如果在后端使用了 APScheduler 进行任务调度
+Flask-APScheduler==1.13.1 # Flask 与 APScheduler 的集成
