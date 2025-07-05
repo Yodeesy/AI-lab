@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 代码生成器 - 多智能体协作</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs/editor/editor.main.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div id="top-anchor"></div> <header>
+        <h1>🤖 AI 代码生成器</h1>
+        <p>基于多智能体协作的代码生成与优化</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#top-anchor">Home</a></li>
+            <li><a href="#status-section">State</a></li>
+            <li><a href="#log-section">Log</a></li>
+            <li><a href="#result-section">Result</a></li>
+            <li><a href="https://github.com/Yodeesy/AI-lab.git" target="_blank">Github</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="input-card">
+            <h2>✨ 你的代码需求</h2>
+
+            <div class="form-group">
+                <label for="user-prompt">请描述你的需求：</label>
+                <textarea id="user-prompt" placeholder="例如：'编写一个Python函数，用于计算斐波那特数列的第n项，并包含输入校验和性能优化。'" rows="6"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="code-source-select">现有代码来源：</label>
+                <select id="code-source-select">
+                    <option value="none">无现有代码</option>
+                    <option value="paste">粘贴代码</option>
+                    <option value="upload">上传文件</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="paste-code-group" style="display: none;">
+                <label for="uploaded-code-input">粘贴现有代码：</label>
+                <textarea id="uploaded-code-input" placeholder="将现有代码粘贴到这里，AI 将在此基础上进行修改或补充。" rows="10"></textarea>
+                <label for="file-extension-paste">文件扩展名 (可选，如：.py)：</label>
+                <input type="text" id="file-extension-paste" placeholder=".py">
+            </div>
+
+            <div class="form-group" id="upload-file-group" style="display: none;">
+                <label for="code-file-input">选择代码文件：</label>
+                <input type="file" id="code-file-input" accept=".py,.js,.java,.cpp,.c,.go,.txt">
+                <p style="font-size: 0.9em; color: #666; margin-top: 5px;">支持文件类型：.py, .js, .java, .cpp, .c, .go, .txt</p>
+            </div>
+
+            <div style="text-align: center;">
+                <button id="start-generation-btn">🚀 开始生成</button>
+            </div>
+        </div>
+
+        <div class="output-card" id="status-section">
+            <h2>📊 任务状态</h2>
+            <p>当前任务ID：<strong id="task-id-display">N/A</strong></p>
+            <div id="status-area">请描述需求并点击“开始生成”按钮。</div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button id="stop-polling-btn" style="background-color: #dc3545; display: none;">⏸ 停止轮询</button>
+                <button id="clear-log-btn" style="background-color: #6c757d;">🧹 清除日志</button>
+                <button id="download-code-button" style="background-color: #28a745; display: none;">📥 下载代码</button>
+                <button id="download-log-button" style="background-color: #17a2b8; display: none;">📜 下载日志</button>
+            </div>
+        </div>
+
+        <div class="log-container" id="log-section">
+            <h2>💬 AI 思考日志</h2>
+            <div id="agent-log">
+                <p class="log-entry"><span class="log-timestamp">[--:--:--]</span> <span class="log-speaker System">系统</span>: 等待任务开始...</p>
+            </div>
+        </div>
+
+        <div class="output-card" id="result-section">
+            <h2>📝 最终生成的代码</h2>
+            <div id="final-code-output">
+                <div id="editor-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="notification-container"></div>
+
+    <footer>
+        <p>&copy; 2025 AI 代码生成器 by Yodeesy. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs/loader.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
